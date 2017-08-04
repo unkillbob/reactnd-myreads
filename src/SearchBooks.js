@@ -10,7 +10,9 @@ export default class SearchBooks extends Component {
 
   searchBooks (query) {
     this.setState(() => ({ results: [] }))
-    BooksAPI.search(query).then(results => this.setState(() => ({ results })))
+    BooksAPI.search(query)
+      .then(results => this.setState(() => ({ results })))
+      .catch(e => {})
   }
 
   render () {
@@ -38,11 +40,7 @@ export default class SearchBooks extends Component {
           <ol className='books-grid'>
             {this.state.results.map(book => (
               <li key={book.id}>
-                <Book
-                  title={book.title}
-                  authors={book.authors}
-                  imageLinks={book.imageLinks}
-                />
+                <Book book={book} />
               </li>
             ))}
           </ol>
