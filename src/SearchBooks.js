@@ -10,11 +10,7 @@ export default class SearchBooks extends Component {
 
   searchBooks (query) {
     this.setState(() => ({ results: [] }))
-    BooksAPI.search(query).then(r => {
-      this.setState(() => ({
-        results: r
-      }))
-    })
+    BooksAPI.search(query).then(results => this.setState(() => ({ results })))
   }
 
   render () {
