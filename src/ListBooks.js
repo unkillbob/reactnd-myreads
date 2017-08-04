@@ -18,11 +18,7 @@ export default function ListBooks (props) {
                   .filter(book => book.shelf === 'currentlyReading')
                   .map(book => (
                     <li key={book.id}>
-                      <Book
-                        title={book.title}
-                        authors={book.authors}
-                        imageLinks={book.imageLinks}
-                      />
+                      <Book book={book} />
                     </li>
                   ))}
               </ol>
@@ -36,11 +32,7 @@ export default function ListBooks (props) {
                   .filter(book => book.shelf === 'wantToRead')
                   .map(book => (
                     <li key={book.id}>
-                      <Book
-                        title={book.title}
-                        authors={book.authors}
-                        imageLinks={book.imageLinks}
-                      />
+                      <Book book={book} />
                     </li>
                   ))}
               </ol>
@@ -52,11 +44,7 @@ export default function ListBooks (props) {
               <ol className='books-grid'>
                 {props.books.filter(book => book.shelf === 'read').map(book => (
                   <li key={book.id}>
-                    <Book
-                      title={book.title}
-                      authors={book.authors}
-                      imageLinks={book.imageLinks}
-                    />
+                    <Book book={book} />
                   </li>
                 ))}
               </ol>
