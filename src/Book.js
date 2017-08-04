@@ -7,9 +7,10 @@ export default function Book (props) {
         <div
           className='book-cover'
           style={{
+            // @todo how to size this dynamically?
             width: 128,
             height: 193,
-            backgroundImage: `url("${props.coverURL}")`
+            backgroundImage: `url("${props.imageLinks.thumbnail}")`
           }}
         />
         <div className='book-shelf-changer'>
@@ -25,7 +26,7 @@ export default function Book (props) {
         </div>
       </div>
       <div className='book-title'>{props.title}</div>
-      <div className='book-authors'>{props.author}</div>
+      <div className='book-authors'>{props.authors.join(', ')}</div>
     </div>
   )
 }
