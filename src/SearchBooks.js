@@ -40,7 +40,10 @@ export default class SearchBooks extends Component {
           <ol className='books-grid'>
             {this.state.results.map(book => (
               <li key={book.id}>
-                <Book book={book} />
+                <Book
+                  book={book}
+                  onUpdateBookShelf={this.props.onUpdateBookShelf}
+                />
               </li>
             ))}
           </ol>
