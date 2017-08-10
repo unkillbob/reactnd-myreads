@@ -16,6 +16,11 @@ export default class SearchBooks extends Component {
   }
 
   render () {
+    const booksById = {}
+    this.props.books.forEach(book => {
+      booksById[book.id] = book
+    })
+
     return (
       <div className='search-books'>
         <div className='search-books-bar'>
@@ -40,7 +45,10 @@ export default class SearchBooks extends Component {
           <ol className='books-grid'>
             {this.state.results.map(book => (
               <li key={book.id}>
-                <Book book={book} />
+                <Book
+                  book={booksById[book.id] || book}
+                  onUpdateBookShelf={this.props.onUpdateBookShelf}
+                />
               </li>
             ))}
           </ol>

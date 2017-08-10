@@ -13,13 +13,20 @@ export default function ListBooks (props) {
           title='Currently Reading'
           shelf='currentlyReading'
           books={props.books}
+          onUpdateBookShelf={props.onUpdateBookShelf}
         />
         <BookShelf
           title='Want to Read'
           shelf='wantToRead'
           books={props.books}
+          onUpdateBookShelf={props.onUpdateBookShelf}
         />
-        <BookShelf title='Read' shelf='read' books={props.books} />
+        <BookShelf
+          title='Read'
+          shelf='read'
+          books={props.books}
+          onUpdateBookShelf={props.onUpdateBookShelf}
+        />
       </div>
       <div className='open-search'>
         <Link to='/search'>Add a book</Link>
