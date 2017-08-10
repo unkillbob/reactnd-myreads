@@ -41,6 +41,7 @@ class BooksApp extends React.Component {
           path='/search'
           render={() => (
             <SearchBooks
+              books={this.state.books}
               onUpdateBookShelf={(book, shelf) =>
                 this.updateBookShelf(book, shelf)}
             />
