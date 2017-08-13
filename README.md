@@ -1,4 +1,4 @@
-# My Reads [![Build status](https://travis-ci.org/unkillbob/reactnd-myreads.svg?branch=master)](https://travis-ci.org/unkillbob/reactnd-myreads)
+# My Reads [![Build Status](https://travis-ci.org/unkillbob/reactnd-myreads.svg?branch=master)](https://travis-ci.org/unkillbob/reactnd-myreads)
 
 ![reading](https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif)
 
