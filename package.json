@@ -9,6 +9,7 @@
     "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
+    "jest-enzyme": "^3.8.0",
     "react-scripts": "1.0.10"
   },
   "scripts": {
