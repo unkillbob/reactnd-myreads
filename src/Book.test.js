@@ -1,9 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { mount } from 'enzyme'
 import Book from './Book'
 
 it('renders without crashing', () => {
-  const div = document.createElement('div')
   const book = {
     title: '',
     authors: [],
@@ -11,5 +10,5 @@ it('renders without crashing', () => {
       thumbnail: []
     }
   }
-  ReactDOM.render(<Book book={book} />, div)
+  mount(<Book book={book} />)
 })
