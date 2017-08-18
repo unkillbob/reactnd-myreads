@@ -1,8 +1,10 @@
 import React from 'react'
 import { MemoryRouter } from 'react-router'
-import App from './App'
-import { getAll, update } from './BooksAPI'
 import { mount, shallow } from 'enzyme'
+import App from './App'
+import ListBooks from './ListBooks'
+import SearchBooks from './SearchBooks'
+import { getAll, update } from './BooksAPI'
 
 jest.mock('./BooksAPI', () => {
   return {
@@ -13,6 +15,22 @@ jest.mock('./BooksAPI', () => {
 
 it('renders without crashing', () => {
   mount(<MemoryRouter><App /></MemoryRouter>)
+})
+
+it('renders ListBooks at /', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={['/']}><App /></MemoryRouter>
+  )
+  expect(wrapper.find(ListBooks)).toHaveLength(1)
+  expect(wrapper.find(SearchBooks)).toHaveLength(0)
+})
+
+it('renders SearchBooks at /search', () => {
+  const wrapper = mount(
+    <MemoryRouter initialEntries={['/search']}><App /></MemoryRouter>
+  )
+  expect(wrapper.find(ListBooks)).toHaveLength(0)
+  expect(wrapper.find(SearchBooks)).toHaveLength(1)
 })
 
 describe('on component mount', () => {
