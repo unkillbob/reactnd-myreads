@@ -21,16 +21,16 @@ it('renders ListBooks at /', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/']}><App /></MemoryRouter>
   )
-  expect(wrapper.find(ListBooks)).toHaveLength(1)
-  expect(wrapper.find(SearchBooks)).toHaveLength(0)
+  expect(wrapper.find(ListBooks)).toBePresent()
+  expect(wrapper.find(SearchBooks)).not.toBePresent()
 })
 
 it('renders SearchBooks at /search', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/search']}><App /></MemoryRouter>
   )
-  expect(wrapper.find(ListBooks)).toHaveLength(0)
-  expect(wrapper.find(SearchBooks)).toHaveLength(1)
+  expect(wrapper.find(ListBooks)).not.toBePresent()
+  expect(wrapper.find(SearchBooks)).toBePresent()
 })
 
 describe('on component mount', () => {
@@ -44,7 +44,7 @@ describe('on component mount', () => {
 
     return wrapper.instance().componentDidMount().then(() => {
       expect(getAll).toHaveBeenCalledTimes(1)
-      expect(wrapper.state('books')).toEqual(books)
+      expect(wrapper).toHaveState('books', books)
     })
   })
 })
