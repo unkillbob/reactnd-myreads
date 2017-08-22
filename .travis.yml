@@ -10,6 +10,7 @@ script:
 deploy:
   provider: script
   script: yarn deploy
+  github_token: $GITHUB_TOKEN
   skip_cleanup: true
   on:
     branch: master
